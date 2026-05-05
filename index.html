@@ -1159,16 +1159,20 @@
       </div>
     </div>
 
-    <div class="cform reveal d2">
+    <form class="cform reveal d2" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      <input type="hidden" name="subject" value="New Inquiry — FARMEASY Website" />
+      <input type="hidden" name="from_name" value="FARMEASY Website" />
+      <input type="hidden" name="redirect" value="false" />
       <div class="cform-row">
-        <input class="cinput" type="text" placeholder="Your Name" />
-        <input class="cinput" type="tel" placeholder="Phone Number" />
+        <input class="cinput" type="text" name="name" placeholder="Your Name" required />
+        <input class="cinput" type="tel" name="phone" placeholder="Phone Number" required />
       </div>
-      <input class="cinput" type="text" placeholder="Tractor Model / Part Required" />
-      <input class="cinput" type="text" placeholder="Your City / State" />
-      <textarea class="cinput" placeholder="Describe your requirement..."></textarea>
-      <button class="btn-submit">Send Inquiry →</button>
-    </div>
+      <input class="cinput" type="text" name="part" placeholder="Tractor Model / Part Required" required />
+      <input class="cinput" type="text" name="location" placeholder="Your City / State" />
+      <textarea class="cinput" name="message" placeholder="Describe your requirement..."></textarea>
+      <button type="submit" class="btn-submit" id="submitBtn">Send Inquiry →</button>
+    </form>
   </div>
 </section>
 
@@ -1218,6 +1222,28 @@
       if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 72, behavior: 'smooth' }); }
     });
   });
+
+  // Web3Forms submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(contactForm) });
+      const json = await res.json();
+      if (json.success) {
+        btn.textContent = '✓ Sent! We\'ll be in touch soon.';
+        btn.style.background = 'var(--green)';
+        contactForm.reset();
+      } else {
+        btn.textContent = 'Failed. Please try again.';
+        btn.style.background = 'var(--red-dk)';
+        btn.disabled = false;
+      }
+    });
+  }
 </script>
 </body>
 </html>
