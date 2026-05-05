@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FARMEASY — Tractor Trolley Spare Parts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <template id="__bundler_thumbnail" data-bg-color="#f7f5f0">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#f7f5f0"/>
+      <rect x="0" y="0" width="1200" height="6" fill="#d42b2b"/>
+      <rect x="0" y="0" width="400" height="6" fill="#d42b2b"/>
+      <rect x="400" y="0" width="400" height="6" fill="#1a3fa8"/>
+      <rect x="800" y="0" width="400" height="6" fill="#1e7a3a"/>
+      <g transform="translate(420 280)">
+        <rect x="40" y="80" width="280" height="100" rx="14" fill="#d42b2b"/>
+        <rect x="120" y="40" width="120" height="60" rx="8" fill="#d42b2b" opacity="0.85"/>
+        <rect x="60" y="20" width="40" height="50" rx="6" fill="#f0b429"/>
+        <circle cx="100" cy="200" r="40" fill="#1a3fa8"/>
+        <circle cx="100" cy="200" r="16" fill="#f0b429"/>
+        <circle cx="280" cy="200" r="50" fill="#1a3fa8"/>
+        <circle cx="280" cy="200" r="20" fill="#f0b429"/>
+        <path d="M30 50 Q60 30 90 50 T150 50" stroke="#1e7a3a" stroke-width="8" fill="none" stroke-linecap="round"/>
+      </g>
+      <text x="600" y="600" font-family="Impact, sans-serif" font-size="84" font-weight="bold" text-anchor="middle" fill="#1a1a18" letter-spacing="6">FARM<tspan fill="#d42b2b">EASY</tspan></text>
+      <text x="600" y="650" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#888880" letter-spacing="4">TRACTOR TROLLEY SPARE PARTS</text>
+    </svg>
+  </template>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:      #d42b2b;
+      --red-dk:   #b01e1e;
+      --blue:     #1a3fa8;
+      --blue-lt:  #2952d4;
+      --green:    #1e7a3a;
+      --green-lt: #2db554;
+      --yellow:   #f0b429;
+      --yellow-dk:#c8920f;
+
+      /* Light theme */
+      --bg:       #f7f5f0;
+      --bg2:      #efecea;
+      --surface:  #ffffff;
+      --border:   #e2ddd6;
+      --text:     #1a1a18;
+      --text-mid: #4a4a46;
+      --text-lt:  #888880;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 50px; width: auto;
+      object-fit: contain;
+    }
+    .nav-wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.9rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .nav-wordmark span { color: var(--red); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-mid);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-cta {
+      background: var(--red) !important;
+      color: #fff !important;
+      padding: 9px 22px;
+      border-radius: 5px;
+    }
+    .nav-cta:hover { background: var(--red-dk) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--surface);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 72px 5vw 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-top-stripe {
+      position: absolute; top: 72px; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--blue) 33%, var(--green) 66%, var(--yellow) 100%);
+    }
+    .hero-bg-shape {
+      position: absolute; right: -60px; top: 50%;
+      transform: translateY(-50%);
+      width: 52vw; height: 52vw; max-width: 700px; max-height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(212,43,43,0.05) 0%, rgba(26,63,168,0.04) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left {
+      position: relative; z-index: 2;
+      padding: 80px 0;
+      padding-right: 48px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 22px;
+    }
+    .eyebrow-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,43,43,0.08);
+      border: 1px solid rgba(212,43,43,0.2);
+      color: var(--red);
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--red);
+    }
+    /* no blink animation */
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.2rem, 6vw, 5.6rem);
+      line-height: 0.96;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .hero h1 .accent-red   { color: var(--red); }
+    .hero h1 .accent-green { color: var(--green); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      max-width: 460px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 30px;
+      border-radius: 5px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    .btn:hover::after { transform: translateX(0); }
+    .btn:hover { transform: translateY(-3px); }
+    .btn:active { transform: translateY(0px) scale(0.98); }
+    .btn-red { background: var(--red); color: #fff; }
+    .btn-red:hover { background: var(--red-dk); box-shadow: 0 8px 24px rgba(212,43,43,0.3); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--red); color: var(--red); box-shadow: 0 4px 14px rgba(212,43,43,0.1); }
+
+    .hero-divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--blue));
+      border-radius: 2px;
+      margin: 36px 0;
+    }
+    .hero-stats {
+      display: flex; gap: 36px; flex-wrap: wrap;
+    }
+    .hstat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--text);
+    }
+    .hstat-num span { color: var(--red); }
+    .hstat-label {
+      font-size: 0.72rem;
+      color: var(--text-lt);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+
+    /* Hero right — logo showcase */
+    .hero-right {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 0;
+    }
+    .logo-showcase {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+    .logo-showcase-bg {
+      position: absolute; inset: 0;
+      background: var(--bg);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+    }
+    .logo-showcase img {
+      width: 88%;
+      height: auto;
+      position: relative; z-index: 1;
+      padding: 32px 32px 0;
+    }
+    .logo-showcase-name {
+      position: relative; z-index: 1;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      padding-bottom: 8px;
+    }
+    .logo-showcase-name span { color: var(--red); }
+    .logo-showcase-sub {
+      position: relative; z-index: 1;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      padding-bottom: 28px;
+    }
+    .logo-color-dots {
+      position: absolute; bottom: -18px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 2;
+    }
+    .logo-color-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 2px solid var(--surface);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--red);
+      padding: 13px 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; white-space: nowrap;
+      animation: scrollX 22s linear infinite;
+    }
+    @keyframes scrollX { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .m-item {
+      display: inline-flex; align-items: center; gap: 16px;
+      padding: 0 24px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.92);
+    }
+    .m-sep {
+      width: 5px; height: 5px;
+      background: rgba(255,255,255,0.4);
+      transform: rotate(45deg); flex-shrink: 0;
+    }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 96px 5vw; }
+    .s-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .s-eyebrow-line { width: 28px; height: 2px; border-radius: 1px; }
+    .s-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .s-sub {
+      font-size: 0.97rem;
+      color: var(--text-mid);
+      line-height: 1.72;
+      max-width: 480px;
+    }
+
+    /* ── PRODUCTS ── */
+    .products { background: var(--bg); }
+    .products-hd {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; flex-wrap: wrap; gap: 24px;
+      margin-bottom: 52px;
+    }
+    .products-hd .s-eyebrow { color: var(--red); }
+    .products-hd .s-eyebrow-line { background: var(--red); }
+
+    .pgrid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+    @media(max-width:1024px){.pgrid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:580px){.pgrid{grid-template-columns:1fr;}}
+
+    .pcard {
+      background: var(--surface);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.28s, box-shadow 0.28s;
+    }
+    .pcard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+    }
+    .pcard-top {
+      height: 172px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    /* Different tinted bg per card */
+    .pcard:nth-child(1) .pcard-top { background: #fff3f3; }
+    .pcard:nth-child(2) .pcard-top { background: #f0f3ff; }
+    .pcard:nth-child(3) .pcard-top { background: #f0fff5; }
+    .pcard:nth-child(4) .pcard-top { background: #fffbf0; }
+    .pcard:nth-child(5) .pcard-top { background: #f5f0ff; }
+    .pcard:nth-child(6) .pcard-top { background: #f0f8ff; }
+
+    .pcard-top-pattern {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent 0, transparent 14px,
+        rgba(0,0,0,0.02) 14px, rgba(0,0,0,0.02) 15px
+      );
+    }
+    .pcard-icon { position: relative; z-index: 1; width: 72px; height: 72px; }
+    .pcard-badge {
+      position: absolute; top: 12px; right: 12px;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 100px;
+    }
+    .badge-red { background: var(--red); color: #fff; }
+    .badge-yellow { background: var(--yellow); color: var(--text); }
+
+    .pcard-body { padding: 20px 20px 16px; }
+    .pcard-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.45rem; letter-spacing: 0.03em;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .pcard-desc {
+      font-size: 0.83rem; color: var(--text-mid);
+      line-height: 1.62; margin-bottom: 14px;
+    }
+    .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .chip {
+      background: var(--bg2); color: var(--text-mid);
+      font-size: 0.67rem; font-weight: 600;
+      padding: 3px 9px; border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+    .pcard-foot {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .pcard-mat {
+      font-size: 0.7rem; color: var(--text-lt);
+      font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pcard-cta {
+      font-size: 0.75rem; font-weight: 700;
+      color: var(--red); letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      display: flex; align-items: center; gap: 4px;
+      transition: gap 0.2s;
+    }
+    .pcard:hover .pcard-cta { gap: 8px; }
+
+    /* ── WHY ── */
+    .why { background: var(--surface); }
+    .why .s-eyebrow { color: var(--green); }
+    .why .s-eyebrow-line { background: var(--green); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+      margin-top: 52px;
+    }
+    @media(max-width:768px){.why-grid{grid-template-columns:1fr;}}
+    .why-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 30px 28px;
+      display: flex; gap: 20px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .why-card:hover {
+      border-color: var(--red);
+      box-shadow: 0 6px 24px rgba(212,43,43,0.08);
+    }
+    .why-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem; line-height: 1;
+      color: rgba(0,0,0,0.06);
+      min-width: 48px;
+      transition: color 0.25s;
+    }
+    .why-card:hover .why-num { color: var(--red); }
+    .why-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem; letter-spacing: 0.04em;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .why-text p {
+      font-size: 0.85rem; color: var(--text-mid); line-height: 1.65;
+    }
+
+    /* stats row */
+    .why-stats {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 0; margin-top: 52px;
+      border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; background: var(--bg);
+    }
+    @media(max-width:768px){.why-stats{grid-template-columns:repeat(2,1fr);}}
+    .wstat {
+      padding: 28px 24px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .wstat:last-child { border-right: none; }
+    .wstat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.6rem; line-height: 1;
+    }
+    .wstat:nth-child(1) .wstat-num { color: var(--red); }
+    .wstat:nth-child(2) .wstat-num { color: var(--blue); }
+    .wstat:nth-child(3) .wstat-num { color: var(--green); }
+    .wstat:nth-child(4) .wstat-num { color: var(--yellow-dk); }
+    .wstat-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-lt); margin-top: 4px;
+    }
+
+    /* ── PROCESS ── */
+    .process { background: var(--bg2); }
+    .process .s-eyebrow { color: var(--blue); }
+    .process .s-eyebrow-line { background: var(--blue); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 0 12px; margin-top: 52px; align-items: center;
+    }
+    .pstep-arrow {
+      display: flex; align-items: center; justify-content: center;
+      color: var(--border); font-size: 1.4rem;
+    }
+    .pstep-arrow svg { width: 28px; height: 28px; }
+    @media(max-width:768px){
+      .process-steps { grid-template-columns: repeat(2,1fr); gap: 18px; }
+      .pstep-arrow { display: none; }
+    }
+    .pstep {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pstep::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .pstep:nth-child(1)::before { background: var(--red); }
+    .pstep:nth-child(2)::before { background: var(--blue); }
+    .pstep:nth-child(3)::before { background: var(--green); }
+    .pstep:nth-child(4)::before { background: var(--yellow-dk); }
+    .pstep-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem; line-height: 1;
+      color: rgba(0,0,0,0.05);
+      position: absolute; top: 12px; right: 18px;
+    }
+    .pstep-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .pstep:nth-child(1) .pstep-icon { background: rgba(212,43,43,0.1); }
+    .pstep:nth-child(2) .pstep-icon { background: rgba(26,63,168,0.1); }
+    .pstep:nth-child(3) .pstep-icon { background: rgba(30,122,58,0.1); }
+    .pstep:nth-child(4) .pstep-icon { background: rgba(240,180,41,0.15); }
+    .pstep-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem; letter-spacing: 0.04em;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .pstep-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.65; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--surface); }
+    .contact .s-eyebrow { color: var(--red); }
+    .contact .s-eyebrow-line { background: var(--red); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.3fr;
+      gap: 72px; align-items: start; margin-top: 48px;
+    }
+    @media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:40px;}}
+
+    .cinfo { display: flex; flex-direction: column; gap: 20px; margin-top: 28px; }
+    .cinfo-card {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .cinfo-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cinfo-icon.red   { background: rgba(212,43,43,0.1); }
+    .cinfo-icon.blue  { background: rgba(26,63,168,0.1); }
+    .cinfo-icon.green { background: rgba(30,122,58,0.1); }
+    .cinfo-label {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-lt); margin-bottom: 2px;
+    }
+    .cinfo-val { font-size: 0.92rem; color: var(--text); font-weight: 500; }
+
+    .cform { display: flex; flex-direction: column; gap: 12px; }
+    .cform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media(max-width:480px){.cform-row{grid-template-columns:1fr;}}
+    .cinput {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s, box-shadow 0.25s, transform 0.2s;
+      width: 100%;
+    }
+    .cinput::placeholder { color: var(--text-lt); transition: opacity 0.2s, transform 0.2s; }
+    .cinput:focus::placeholder { opacity: 0.4; transform: translateX(4px); }
+    .cinput:focus {
+      border-color: var(--red);
+      background: var(--surface);
+      box-shadow: 0 0 0 3px rgba(212,43,43,0.1);
+      transform: translateY(-1px);
+    }
+    .cinput:hover:not(:focus) { border-color: #ccc; }
+    textarea.cinput { min-height: 110px; resize: vertical; }
+    .btn-submit {
+      width: 100%; padding: 14px;
+      background: var(--red); color: #fff;
+      border: none; cursor: pointer; border-radius: 7px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem; letter-spacing: 0.1em;
+      transition: background 0.2s, transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .btn-submit::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0.12);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    .btn-submit:hover::after { transform: translateX(0); }
+    .btn-submit:hover { background: var(--red-dk); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(212,43,43,0.3); }
+    .btn-submit:active { transform: scale(0.98); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      padding: 32px 5vw;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-left { display: flex; align-items: center; gap: 16px; }
+    .footer-logo img { height: 36px; border-radius: 4px; }
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 0.08em; color: #fff;
+    }
+    .footer-brand span { color: var(--yellow); }
+    .footer-copy { font-size: 0.76rem; color: rgba(255,255,255,0.3); }
+    .footer-links { display: flex; gap: 20px; list-style: none; }
+    .footer-links a {
+      font-size: 0.78rem; color: rgba(255,255,255,0.4);
+      text-decoration: none; letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--yellow); }
+
+    /* ── FLOATING BUTTONS ── */
+    .float-btns {
+      position: fixed; bottom: 28px; right: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+      z-index: 300;
+    }
+    .float-btn {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+      position: relative;
+    }
+    .float-btn:hover { transform: scale(1.12); box-shadow: 0 8px 24px rgba(0,0,0,0.28); }
+    .float-btn:active { transform: scale(0.96); }
+    .float-btn-wa { background: #25D366; }
+    .float-btn-call { background: var(--red); }
+    .float-btn svg { width: 24px; height: 24px; }
+    .float-btn-label {
+      position: absolute; right: 62px;
+      background: var(--text); color: #fff;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.06em; white-space: nowrap;
+      padding: 5px 10px; border-radius: 5px;
+      opacity: 0; pointer-events: none;
+      transform: translateX(6px);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .float-btn-label::after {
+      content: '';
+      position: absolute; top: 50%; right: -5px;
+      transform: translateY(-50%);
+      border: 5px solid transparent;
+      border-right: none;
+      border-left-color: var(--text);
+    }
+    .float-btn:hover .float-btn-label { opacity: 1; transform: translateX(0); }
+
+    /* ── REVEAL (animations only on buttons/inputs per user request) ── */
+    .reveal { opacity: 1; transform: none; }
+    .reveal.up { opacity: 1; transform: none; }
+    .d1,.d2,.d3,.d4,.d5 { transition-delay: 0s; }
+
+    @media(max-width:900px){
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="uploads/Farm Easy Logo.png" alt="FARMEASY" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Quality</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-top-stripe"></div>
+  <div class="hero-bg-shape"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-pill">
+        <span class="eyebrow-dot"></span>
+        Tractor Trolley Spare Parts · Made in India
+      </div>
+    </div>
+    <h1>
+      BUILT FOR<br/>
+      THE <span class="accent-red">FIELDS.</span><br/>
+      <span class="accent-green">BUILT TO LAST.</span>
+    </h1>
+    <p class="hero-desc">
+      FARMEASY manufactures precision-engineered tractor trolley spare parts — handles, hinges, discs, hydraulic jacks, hook bushes and axles — crafted for Indian farmers who demand durability.
+    </p>
+    <div class="hero-btns">
+      <a href="#products" class="btn btn-red">Explore Products</a>
+      <a href="#contact" class="btn btn-outline">Get a Quote</a>
+      <a href="uploads/Farm Easy Brochure.pdf" download class="btn btn-outline">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Brochure
+      </a>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-num"><span>500</span>+</div>
+        <div class="hstat-label">Part Varieties</div>
+      </div>
+      <div>
+        <div class="hstat-num"><span>30</span>+</div>
+        <div class="hstat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="hstat-num"><span>10K</span>+</div>
+        <div class="hstat-label">Farmers Served</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="logo-showcase">
+      <div class="logo-showcase-bg"></div>
+      <img src="uploads/farmeasy_logo_transparent.png" alt="FARMEASY Tractor Logo" />
+      <div class="logo-showcase-name">FARM<span>EASY</span></div>
+      <div class="logo-showcase-sub">Tractor Trolley Spare Parts</div>
+      <div class="logo-color-dots">
+        <div class="logo-color-dot" style="background:var(--red)"></div>
+        <div class="logo-color-dot" style="background:var(--blue)"></div>
+        <div class="logo-color-dot" style="background:var(--green)"></div>
+        <div class="logo-color-dot" style="background:var(--yellow)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="m-item"><span class="m-sep"></span>Trolley Handle</span>
+    <span class="m-item"><span class="m-sep"></span>Heavy Duty Hinges</span>
+    <span class="m-item"><span class="m-sep"></span>Disc Assembly</span>
+    <span class="m-item"><span class="m-sep"></span>Hydraulic Jack</span>
+    <span class="m-item"><span class="m-sep"></span>Hook Bush</span>
+    <span class="m-item"><span class="m-sep"></span>Trolley Axle</span>
+    <span class="m-item"><span class="m-sep"></span>Premium Steel</span>
+    <span class="m-item"><span class="m-sep"></span>ISO Quality</span>
+    <span class="m-item"><span class="m-sep"></span>Made in India</span>
+    <span class="m-item"><span class="m-sep"></span>Trolley Handle</span>
+    <span class="m-item"><span class="m-sep"></span>Heavy Duty Hinges</span>
+    <span class="m-item"><span class="m-sep"></span>Disc Assembly</span>
+    <span class="m-item"><span class="m-sep"></span>Hydraulic Jack</span>
+    <span class="m-item"><span class="m-sep"></span>Hook Bush</span>
+    <span class="m-item"><span class="m-sep"></span>Trolley Axle</span>
+    <span class="m-item"><span class="m-sep"></span>Premium Steel</span>
+    <span class="m-item"><span class="m-sep"></span>ISO Quality</span>
+    <span class="m-item"><span class="m-sep"></span>Made in India</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-hd">
+    <div>
+      <div class="s-eyebrow reveal"><div class="s-eyebrow-line"></div>Our Product Range</div>
+      <h2 class="s-title reveal d1">Spare Parts That Keep You Moving</h2>
+      <p class="s-sub reveal d2">Precision-engineered for durability and exact fitment.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <a href="#contact" class="btn btn-red reveal">Request Catalog</a>
+      <a href="uploads/Farm Easy Brochure.pdf" download class="btn btn-outline reveal d1">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Brochure
+      </a>
+    </div>
+  </div>
+  <div class="pgrid">
+
+    <div class="pcard reveal">
+      <div class="pcard-top">
+        <div class="pcard-top-pattern"></div>
+        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
+          <rect x="10" y="32" width="52" height="9" rx="4.5" fill="#d42b2b" opacity="0.85"/>
+          <rect x="31" y="8" width="9" height="56" rx="4.5" fill="#d42b2b" opacity="0.4"/>
+          <circle cx="36" cy="36" r="9" fill="#f0b429"/>
+          <circle cx="36" cy="36" r="4.5" fill="#d42b2b"/>
+        </svg>
+        <span class="pcard-badge badge-red">Best Seller</span>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Trolley Handle</div>
+        <p class="pcard-desc">Heavy-duty steering handles for precise control and long-term durability under continuous field use.</p>
+        <div class="chips">
+          <span class="chip">High Tensile Steel</span>
+          <span class="chip">Anti-Rust</span>
+          <span class="chip">Multi-Size</span>
+        </div>
+      </div>
+      <div class="pcard-foot">
+        <span class="pcard-mat">Forged Steel</span>
+        <a href="#contact" class="pcard-cta">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal d1">
+      <div class="pcard-top">
+        <div class="pcard-top-pattern"></div>
+        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
+          <rect x="14" y="14" width="16" height="44" rx="4" fill="#1a3fa8" opacity="0.85"/>
+          <rect x="42" y="14" width="16" height="44" rx="4" fill="#1a3fa8" opacity="0.55"/>
+          <rect x="26" y="30" width="20" height="12" rx="3" fill="#f0b429"/>
+          <circle cx="36" cy="36" r="4" fill="#1a3fa8"/>
+        </svg>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Hinges</div>
+        <p class="pcard-desc">Robust trolley hinges engineered for smooth articulation and maximum load-bearing capacity.</p>
+        <div class="chips">
+          <span class="chip">Forged Steel</span>
+          <span class="chip">Zinc Plated</span>
+          <span class="chip">Load Tested</span>
+        </div>
+      </div>
+      <div class="pcard-foot">
+        <span class="pcard-mat">Alloy Steel</span>
+        <a href="#contact" class="pcard-cta">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal d2">
+      <div class="pcard-top">
+        <div class="pcard-top-pattern"></div>
+        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
+          <circle cx="36" cy="36" r="24" stroke="#1e7a3a" stroke-width="4.5" fill="none"/>
+          <circle cx="36" cy="36" r="13" stroke="#2db554" stroke-width="2.5" fill="none"/>
+          <circle cx="36" cy="36" r="5.5" fill="#f0b429"/>
+          <line x1="36" y1="12" x2="36" y2="19" stroke="#1e7a3a" stroke-width="3" stroke-linecap="round"/>
+          <line x1="36" y1="53" x2="36" y2="60" stroke="#1e7a3a" stroke-width="3" stroke-linecap="round"/>
+          <line x1="12" y1="36" x2="19" y2="36" stroke="#1e7a3a" stroke-width="3" stroke-linecap="round"/>
+          <line x1="53" y1="36" x2="60" y2="36" stroke="#1e7a3a" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Disc Assembly</div>
+        <p class="pcard-desc">Precision-ground disc components for smooth rotation and even wear on all terrain types.</p>
+        <div class="chips">
+          <span class="chip">Hardened Steel</span>
+          <span class="chip">Ground Finish</span>
+          <span class="chip">ISO Certified</span>
+        </div>
+      </div>
+      <div class="pcard-foot">
+        <span class="pcard-mat">Hardened Steel</span>
+        <a href="#contact" class="pcard-cta">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal d3">
+      <div class="pcard-top">
+        <div class="pcard-top-pattern"></div>
+        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
+          <rect x="29" y="8" width="14" height="32" rx="4" fill="#d42b2b" opacity="0.75"/>
+          <rect x="20" y="40" width="32" height="20" rx="6" fill="#1a3fa8"/>
+          <rect x="25" y="46" width="22" height="9" rx="3" fill="#d42b2b" opacity="0.65"/>
+          <rect x="33" y="5" width="6" height="6" rx="3" fill="#f0b429"/>
+        </svg>
+        <span class="pcard-badge badge-yellow">Heavy Duty</span>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Hydraulic Jack</div>
+        <p class="pcard-desc">High-capacity jacks for safe and efficient trolley lifting. Built for repeated heavy-load cycles.</p>
+        <div class="chips">
+          <span class="chip">5–10 Ton</span>
+          <span class="chip">Safety Lock</span>
+          <span class="chip">Hydraulic Seal</span>
+        </div>
+      </div>
+      <div class="pcard-foot">
+        <span class="pcard-mat">Cast Iron / Steel</span>
+        <a href="#contact" class="pcard-cta">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal d4">
+      <div class="pcard-top">
+        <div class="pcard-top-pattern"></div>
+        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
+          <circle cx="36" cy="36" r="18" stroke="#1e7a3a" stroke-width="4.5" fill="none"/>
+          <circle cx="36" cy="36" r="9" fill="#1a3fa8" opacity="0.4"/>
+          <circle cx="36" cy="36" r="5" fill="#f0b429"/>
+          <rect x="10" y="33.5" width="52" height="5" rx="2.5" fill="#1e7a3a" opacity="0.25"/>
+        </svg>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Hook Bush</div>
+        <p class="pcard-desc">Precision-machined for secure coupling and vibration dampening between tractor and trolley.</p>
+        <div class="chips">
+          <span class="chip">Alloy Steel</span>
+          <span class="chip">Vibration Proof</span>
+          <span class="chip">Easy Fit</span>
+        </div>
+      </div>
+      <div class="pcard-foot">
+        <span class="pcard-mat">Alloy Steel</span>
+        <a href="#contact" class="pcard-cta">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal d5">
+      <div class="pcard-top">
+        <div class="pcard-top-pattern"></div>
+        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
+          <rect x="6" y="31" width="60" height="10" rx="5" fill="#d42b2b" opacity="0.75"/>
+          <circle cx="16" cy="36" r="11" stroke="#1a3fa8" stroke-width="4" fill="none"/>
+          <circle cx="16" cy="36" r="4" fill="#f0b429"/>
+          <circle cx="56" cy="36" r="11" stroke="#1a3fa8" stroke-width="4" fill="none"/>
+          <circle cx="56" cy="36" r="4" fill="#f0b429"/>
+        </svg>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Trolley Axle</div>
+        <p class="pcard-desc">Forged axles machined to exact tolerances — backbone of every tractor trolley for maximum loads.</p>
+        <div class="chips">
+          <span class="chip">Forged & Machined</span>
+          <span class="chip">High Load</span>
+          <span class="chip">Standard Sizes</span>
+        </div>
+      </div>
+      <div class="pcard-foot">
+        <span class="pcard-mat">Forged Steel</span>
+        <a href="#contact" class="pcard-cta">Enquire →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="s-eyebrow reveal"><div class="s-eyebrow-line"></div>Why Choose FARMEASY</div>
+  <h2 class="s-title reveal d1">Quality That Works<br/>As Hard As You Do</h2>
+  <p class="s-sub reveal d2">Every part passes rigorous quality checks before it reaches your hands.</p>
+
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-num">01</div>
+      <div class="why-text">
+        <h3>Premium Raw Materials</h3>
+        <p>We source only high-grade steel alloys and certified raw materials, ensuring every component meets industry-leading strength standards.</p>
+      </div>
+    </div>
+    <div class="why-card reveal d1">
+      <div class="why-num">02</div>
+      <div class="why-text">
+        <h3>Precision Manufacturing</h3>
+        <p>SPM machine components with tight tolerances ensure perfect fitment and consistent performance across our entire product range.</p>
+      </div>
+    </div>
+    <div class="why-card reveal d2">
+      <div class="why-num">03</div>
+      <div class="why-text">
+        <h3>Field-Tested Durability</h3>
+        <p>Every design is tested in real farm conditions — muddy tracks, heavy loads, harsh climates — before we ever ship to a customer.</p>
+      </div>
+    </div>
+    <div class="why-card reveal d3">
+      <div class="why-num">04</div>
+      <div class="why-text">
+        <h3>Direct Farmer Support</h3>
+        <p>We work directly with farmers and dealers — no middlemen, better prices, and real support when you need it most.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-stats reveal">
+    <div class="wstat">
+      <div class="wstat-num">500+</div>
+      <div class="wstat-label">Part Varieties</div>
+    </div>
+    <div class="wstat">
+      <div class="wstat-num">30+</div>
+      <div class="wstat-label">Years Experience</div>
+    </div>
+    <div class="wstat">
+      <div class="wstat-num">10K+</div>
+      <div class="wstat-label">Farmers Served</div>
+    </div>
+    <div class="wstat">
+      <div class="wstat-num">100%</div>
+      <div class="wstat-label">Made in India</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div style="text-align:center">
+    <div class="s-eyebrow reveal" style="justify-content:center"><div class="s-eyebrow-line"></div>How It Works</div>
+    <h2 class="s-title reveal d1" style="text-align:center">From Inquiry to Delivery</h2>
+    <p class="s-sub reveal d2" style="text-align:center;margin:0 auto">Simple, fast and reliable — getting the right parts has never been easier.</p>
+  </div>
+  <div class="process-steps">
+    <div class="pstep reveal" style="height:100%">
+      <div class="pstep-num">01</div>
+      <div class="pstep-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#d42b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pstep-title">Send Inquiry</div>
+      <p class="pstep-desc">Share your tractor model and required parts via phone, WhatsApp, or our contact form.</p>
+    </div>
+    <div class="pstep-arrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/>
+      </svg>
+    </div>
+    <div class="pstep reveal d1">
+      <div class="pstep-num">02</div>
+      <div class="pstep-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#1a3fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="14 2 14 8 20 8" stroke="#1a3fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pstep-title">Get Quote</div>
+      <p class="pstep-desc">Receive a detailed quote with pricing, specs and availability within 24 hours.</p>
+    </div>
+    <div class="pstep-arrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/>
+      </svg>
+    </div>
+    <div class="pstep reveal d2">
+      <div class="pstep-num">03</div>
+      <div class="pstep-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12" stroke="#1e7a3a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pstep-title">Confirm Order</div>
+      <p class="pstep-desc">Approve the quote, choose delivery preference, and confirm your order easily.</p>
+    </div>
+    <div class="pstep-arrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/>
+      </svg>
+    </div>
+    <div class="pstep reveal d3">
+      <div class="pstep-num">04</div>
+      <div class="pstep-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+          <rect x="1" y="3" width="15" height="13" stroke="#c8920f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" stroke="#c8920f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="5.5" cy="18.5" r="2.5" stroke="#c8920f" stroke-width="2"/>
+          <circle cx="18.5" cy="18.5" r="2.5" stroke="#c8920f" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="pstep-title">Fast Delivery</div>
+      <p class="pstep-desc">Quality-checked parts dispatched and delivered to your doorstep across India.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="s-eyebrow reveal"><div class="s-eyebrow-line"></div>Get In Touch</div>
+  <h2 class="s-title reveal d1">Need Parts? Let's Talk.</h2>
+  <div class="contact-grid">
+    <div>
+      <p class="s-sub reveal d2" style="max-width:360px;">Whether you're a farmer, dealer, or distributor — we're ready to supply exactly what you need, fast.</p>
+      <div class="cinfo">
+        <div class="cinfo-card reveal d2">
+          <div class="cinfo-icon red">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="#d42b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Phone / WhatsApp</div>
+            <div class="cinfo-val">+91 97307 10166 &nbsp;·&nbsp; +91 77559 90166</div>
+          </div>
+        </div>
+        <div class="cinfo-card reveal d3">
+          <div class="cinfo-icon blue">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#1a3fa8" stroke-width="2" stroke-linejoin="round"/>
+              <polyline points="22,6 12,13 2,6" stroke="#1a3fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Email</div>
+            <div class="cinfo-val">farmeasyagriproducts@gmail.com</div>
+          </div>
+        </div>
+        <div class="cinfo-card reveal d4">
+          <div class="cinfo-icon green">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#1e7a3a" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="12" cy="10" r="3" stroke="#1e7a3a" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Location</div>
+            <div class="cinfo-val">C-20, MIDC Chikalthana, Aurangabad 431003, Maharashtra</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cform reveal d2">
+      <div class="cform-row">
+        <input class="cinput" type="text" placeholder="Your Name" />
+        <input class="cinput" type="tel" placeholder="Phone Number" />
+      </div>
+      <input class="cinput" type="text" placeholder="Tractor Model / Part Required" />
+      <input class="cinput" type="text" placeholder="Your City / State" />
+      <textarea class="cinput" placeholder="Describe your requirement..."></textarea>
+      <button class="btn-submit">Send Inquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo">
+      <img src="uploads/Farm Easy Logo.png" alt="FARMEASY" />
+    </div>
+  </div>
+  <span class="footer-copy">© 2026 FARMEASY. All rights reserved. Made in India 🇮🇳</span>
+  <ul class="footer-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Quality</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a class="float-btn float-btn-wa" href="https://wa.me/919730710166" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="float-btn-label">WhatsApp Us</span>
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+  <a class="float-btn float-btn-call" href="tel:+919730710166" aria-label="Call Us">
+    <span class="float-btn-label">Call Us</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+  // Scroll reveal
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('up'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 72, behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
