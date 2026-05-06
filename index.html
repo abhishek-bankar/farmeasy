@@ -587,7 +587,7 @@
     .contact .s-eyebrow-line { background: var(--red); }
     .contact-grid {
       display: grid; grid-template-columns: 1fr 1.3fr;
-      gap: 72px; align-items: start; margin-top: 48px;
+      gap: 72px; align-items: stretch;
     }
     @media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:40px;}}
 
@@ -614,7 +614,10 @@
     }
     .cinfo-val { font-size: 0.92rem; color: var(--text); font-weight: 500; }
 
-    .cform { display: flex; flex-direction: column; gap: 12px; }
+    .cform-wrap { display: flex; flex-direction: column; height: 100%; }
+    .cform-wrap > .s-eyebrow { visibility: hidden; }
+    @media(max-width:768px){.cform-wrap > .s-eyebrow{display:none;}}
+    .cform { display: flex; flex-direction: column; gap: 12px; flex: 1; }
     .cform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media(max-width:480px){.cform-row{grid-template-columns:1fr;}}
     .cinput {
@@ -638,7 +641,7 @@
       transform: translateY(-1px);
     }
     .cinput:hover:not(:focus) { border-color: #ccc; }
-    textarea.cinput { min-height: 110px; resize: vertical; }
+    textarea.cinput { min-height: 110px; resize: vertical; flex: 1; }
     .btn-submit {
       width: 100%; padding: 14px;
       background: var(--red); color: #fff;
@@ -667,7 +670,7 @@
       justify-content: space-between; flex-wrap: wrap; gap: 16px;
     }
     .footer-left { display: flex; align-items: center; gap: 16px; }
-    .footer-logo img { height: 36px; border-radius: 4px; }
+    .footer-logo img { height: 72px; width: auto; }
     .footer-brand {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.5rem; letter-spacing: 0.08em; color: #fff;
@@ -1158,10 +1161,10 @@
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="s-eyebrow reveal"><div class="s-eyebrow-line"></div>Get In Touch</div>
-  <h2 class="s-title reveal d1">Need Parts? Let's Talk.</h2>
   <div class="contact-grid">
     <div>
+      <div class="s-eyebrow reveal"><div class="s-eyebrow-line"></div>Get In Touch</div>
+      <h2 class="s-title reveal d1">Need Parts? Let's Talk.</h2>
       <p class="s-sub reveal d2" style="max-width:360px;">Whether you're a farmer, dealer, or distributor — we're ready to supply exactly what you need, fast.</p>
       <div class="cinfo">
         <div class="cinfo-card reveal d2">
@@ -1213,6 +1216,9 @@
       </div>
     </div>
 
+    <div class="cform-wrap">
+    <div class="s-eyebrow" aria-hidden="true"><div class="s-eyebrow-line"></div>spacer</div>
+    <h2 class="s-title reveal d1">Tell Us What You Need.</h2>
     <form class="cform reveal d2" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
       <input type="hidden" name="subject" value="New Inquiry — FARMEASY Website" />
@@ -1227,6 +1233,7 @@
       <textarea class="cinput" name="message" placeholder="Describe your requirement..."></textarea>
       <button type="submit" class="btn-submit" id="submitBtn">Send Inquiry →</button>
     </form>
+    </div>
   </div>
 </section>
 
