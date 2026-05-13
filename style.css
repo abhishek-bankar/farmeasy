@@ -117,7 +117,7 @@
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
-      margin-bottom: 22px;
+      margin-bottom: 40px;
     }
     .eyebrow-pill {
       display: inline-flex; align-items: center; gap: 8px;
@@ -143,6 +143,7 @@
       line-height: 0.96;
       letter-spacing: 0.02em;
       color: var(--text);
+      font-weight: 900;
       margin-bottom: 22px;
     }
     .hero h1 .accent-red   { color: var(--red); }
@@ -218,13 +219,13 @@
 
     .hero-right {
       position: relative; z-index: 2;
-      display: flex; align-items: center; justify-content: center;
-      padding: 80px 0;
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 0;
     }
     .hero-img {
       width: 100%;
-      max-width: 560px;
-      height: auto;
+      max-width: 700px;
+      height: clamp(360px, 48vh, 520px);
       border-radius: 20px;
       object-fit: cover;
       display: block;
@@ -313,13 +314,22 @@
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
-    /* Different tinted bg per card */
-    .pcard:nth-child(1) .pcard-top { background: #fff3f3; }
-    .pcard:nth-child(2) .pcard-top { background: #f0f3ff; }
-    .pcard:nth-child(3) .pcard-top { background: #f0fff5; }
-    .pcard:nth-child(4) .pcard-top { background: #fffbf0; }
-    .pcard:nth-child(5) .pcard-top { background: #f5f0ff; }
-    .pcard:nth-child(6) .pcard-top { background: #f0f8ff; }
+    /* Top image area: plain white */
+    .pcard-top { background: #ffffff; }
+
+    /* Bottom text area gets the tinted colour */
+    .pcard:nth-child(1) .pcard-body,
+    .pcard:nth-child(1) .pcard-foot { background: #fff3f3; }
+    .pcard:nth-child(2) .pcard-body,
+    .pcard:nth-child(2) .pcard-foot { background: #f0f3ff; }
+    .pcard:nth-child(3) .pcard-body,
+    .pcard:nth-child(3) .pcard-foot { background: #f0fff5; }
+    .pcard:nth-child(4) .pcard-body,
+    .pcard:nth-child(4) .pcard-foot { background: #fffbf0; }
+    .pcard:nth-child(5) .pcard-body,
+    .pcard:nth-child(5) .pcard-foot { background: #f5f0ff; }
+    .pcard:nth-child(6) .pcard-body,
+    .pcard:nth-child(6) .pcard-foot { background: #f0f8ff; }
 
     .pcard-top-pattern {
       position: absolute; inset: 0;
@@ -329,6 +339,7 @@
       );
     }
     .pcard-icon { position: relative; z-index: 1; width: 72px; height: 72px; }
+    .pcard-img { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; padding: 12px; }
     .pcard-badge {
       position: absolute; top: 12px; right: 12px;
       font-size: 0.6rem; font-weight: 700;
