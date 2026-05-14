@@ -221,13 +221,16 @@
       position: relative; z-index: 2;
       display: flex; align-items: flex-start; justify-content: center;
       padding: 0;
+      align-self: flex-start;
+      margin-top: 160px;
     }
     .hero-img {
       width: 100%;
       max-width: 700px;
-      height: clamp(360px, 48vh, 520px);
+      height: clamp(360px, 48vh, 480px);
       border-radius: 20px;
       object-fit: cover;
+      object-position: center center;
       display: block;
     }
 
@@ -310,7 +313,7 @@
       box-shadow: 0 12px 36px rgba(0,0,0,0.1);
     }
     .pcard-top {
-      height: 172px;
+      height: 240px;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
@@ -340,6 +343,9 @@
     }
     .pcard-icon { position: relative; z-index: 1; width: 72px; height: 72px; }
     .pcard-img { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; padding: 12px; }
+    .pcard-carousel { position: relative; width: 100%; height: 100%; }
+    .pcard-carousel .carousel-slide { position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.6s ease; }
+    .pcard-carousel .carousel-slide.active { opacity: 1; }
     .pcard-badge {
       position: absolute; top: 12px; right: 12px;
       font-size: 0.6rem; font-weight: 700;
@@ -349,7 +355,7 @@
     .badge-red { background: var(--red); color: #fff; }
     .badge-yellow { background: var(--yellow); color: var(--text); }
 
-    .pcard-body { padding: 20px 20px 16px; }
+    .pcard-body { padding: 24px 24px 18px; }
     .pcard-name {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.45rem; letter-spacing: 0.03em;
@@ -367,7 +373,7 @@
       letter-spacing: 0.04em;
     }
     .pcard-foot {
-      padding: 14px 20px 18px;
+      padding: 16px 24px 22px;
       border-top: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
     }

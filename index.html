@@ -170,16 +170,11 @@
 
     <div class="pcard reveal d2">
       <div class="pcard-top">
-        <div class="pcard-top-pattern"></div>
-        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
-          <circle cx="36" cy="36" r="24" stroke="#1e7a3a" stroke-width="4.5" fill="none"/>
-          <circle cx="36" cy="36" r="13" stroke="#2db554" stroke-width="2.5" fill="none"/>
-          <circle cx="36" cy="36" r="5.5" fill="#f0b429"/>
-          <line x1="36" y1="12" x2="36" y2="19" stroke="#1e7a3a" stroke-width="3" stroke-linecap="round"/>
-          <line x1="36" y1="53" x2="36" y2="60" stroke="#1e7a3a" stroke-width="3" stroke-linecap="round"/>
-          <line x1="12" y1="36" x2="19" y2="36" stroke="#1e7a3a" stroke-width="3" stroke-linecap="round"/>
-          <line x1="53" y1="36" x2="60" y2="36" stroke="#1e7a3a" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <div class="pcard-carousel" id="discCarousel">
+          <img src="uploads/DISC1.png" alt="Disc Assembly" class="pcard-img carousel-slide active" />
+          <img src="uploads/DISC2.png" alt="Disc Assembly" class="pcard-img carousel-slide" />
+          <img src="uploads/DISC3.png" alt="Disc Assembly" class="pcard-img carousel-slide" />
+        </div>
       </div>
       <div class="pcard-body">
         <div class="pcard-name">Disc Assembly</div>
@@ -197,13 +192,10 @@
 
     <div class="pcard reveal d3">
       <div class="pcard-top">
-        <div class="pcard-top-pattern"></div>
-        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
-          <rect x="29" y="8" width="14" height="32" rx="4" fill="#d42b2b" opacity="0.75"/>
-          <rect x="20" y="40" width="32" height="20" rx="6" fill="#1a3fa8"/>
-          <rect x="25" y="46" width="22" height="9" rx="3" fill="#d42b2b" opacity="0.65"/>
-          <rect x="33" y="5" width="6" height="6" rx="3" fill="#f0b429"/>
-        </svg>
+        <div class="pcard-carousel" id="jackCarousel">
+          <img src="uploads/JACK1.png" alt="Hydraulic Jack" class="pcard-img carousel-slide active" />
+          <img src="uploads/JACK2.png" alt="Hydraulic Jack" class="pcard-img carousel-slide" />
+        </div>
         <span class="pcard-badge badge-yellow">Heavy Duty</span>
       </div>
       <div class="pcard-body">
@@ -223,13 +215,7 @@
 
     <div class="pcard reveal d4">
       <div class="pcard-top">
-        <div class="pcard-top-pattern"></div>
-        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
-          <circle cx="36" cy="36" r="18" stroke="#1e7a3a" stroke-width="4.5" fill="none"/>
-          <circle cx="36" cy="36" r="9" fill="#1a3fa8" opacity="0.4"/>
-          <circle cx="36" cy="36" r="5" fill="#f0b429"/>
-          <rect x="10" y="33.5" width="52" height="5" rx="2.5" fill="#1e7a3a" opacity="0.25"/>
-        </svg>
+        <img src="uploads/HOOK BUSH.png" alt="Hook Bush" class="pcard-img" />
       </div>
       <div class="pcard-body">
         <div class="pcard-name">Hook Bush</div>
@@ -247,14 +233,11 @@
 
     <div class="pcard reveal d5">
       <div class="pcard-top">
-        <div class="pcard-top-pattern"></div>
-        <svg class="pcard-icon" viewBox="0 0 72 72" fill="none">
-          <rect x="6" y="31" width="60" height="10" rx="5" fill="#d42b2b" opacity="0.75"/>
-          <circle cx="16" cy="36" r="11" stroke="#1a3fa8" stroke-width="4" fill="none"/>
-          <circle cx="16" cy="36" r="4" fill="#f0b429"/>
-          <circle cx="56" cy="36" r="11" stroke="#1a3fa8" stroke-width="4" fill="none"/>
-          <circle cx="56" cy="36" r="4" fill="#f0b429"/>
-        </svg>
+        <div class="pcard-carousel" id="axleCarousel">
+          <img src="uploads/AXLE1.png" alt="Trolley Axle" class="pcard-img carousel-slide active" />
+          <img src="uploads/AXLE2.png" alt="Trolley Axle" class="pcard-img carousel-slide" />
+          <img src="uploads/AXLE3.png" alt="Trolley Axle" class="pcard-img carousel-slide" />
+        </div>
       </div>
       <div class="pcard-body">
         <div class="pcard-name">Trolley Axle</div>
@@ -564,5 +547,20 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+  function startCarousel(id, interval) {
+    var slides = document.querySelectorAll('#' + id + ' .carousel-slide');
+    if (!slides.length) return;
+    var current = 0;
+    setInterval(function() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, interval);
+  }
+  startCarousel('discCarousel', 2000);
+  startCarousel('jackCarousel', 2000);
+  startCarousel('axleCarousel', 2000);
+</script>
 </body>
 </html>
