@@ -67,8 +67,8 @@
     let stepLoop = null;
     function runStepLoop() {
       stepItems.forEach(s => s.classList.remove('step-visible'));
-      const totalTime = stepItems.length * 300 + 800;
-      stepItems.forEach((item, i) => setTimeout(() => item.classList.add('step-visible'), i * 300));
+      const totalTime = stepItems.length * 900 + 4000;
+      stepItems.forEach((item, i) => setTimeout(() => item.classList.add('step-visible'), i * 900));
       stepLoop = setTimeout(runStepLoop, totalTime);
     }
     const processObs = new IntersectionObserver((entries) => {
