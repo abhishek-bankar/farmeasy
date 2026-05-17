@@ -1,5 +1,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    @font-face {
+      font-family: 'TAN Nimbus';
+      src: url('fonts/TAN-NIMBUS.ttf') format('truetype'),
+           url('fonts/TAN-NIMBUS.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --red:      #d42b2b;
       --red-dk:   #b01e1e;
@@ -142,12 +151,18 @@
       font-size: clamp(3.2rem, 6vw, 5.6rem);
       line-height: 0.96;
       letter-spacing: 0.02em;
-      color: var(--text);
+      color: #000;
       font-weight: 900;
       margin-bottom: 22px;
     }
     .hero h1 .accent-red   { color: var(--red); }
-    .hero h1 .accent-green { color: var(--green); font-weight: 900; }
+    .hero h1 .hero-line2 { white-space: nowrap; }
+    .hero h1 .accent-green {
+      font-family: 'TAN Nimbus', 'Bebas Neue', serif;
+      color: #7ed957;
+      font-weight: normal;
+      font-size: 0.62em;
+    }
 
     .hero-desc {
       font-size: 1rem;
@@ -209,6 +224,8 @@
     }
     .hstat-num span { color: var(--red); }
     .hstat-num span.hstat-green-num { color: var(--green); }
+    .hstat-num-blue, .hstat-num-blue span { color: #1565C0; }
+    .hstat-num-red, .hstat-num-red span { color: var(--red); }
     .hstat-label {
       font-size: 0.72rem;
       color: var(--text-lt);
@@ -219,6 +236,7 @@
     }
     .hstat-blue { color: #1565C0; }
     .hstat-green { color: var(--green); }
+    .hstat-red { color: var(--red); }
 
     .hero-right {
       position: relative; z-index: 2;
@@ -438,10 +456,11 @@
       letter-spacing: 0.04em; text-transform: uppercase;
     }
     .about-img-wrap { border-radius: 16px; overflow: hidden; }
-    .about-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
+    .about-img { width: 100%; height: 460px; object-fit: contain; display: block; border-radius: 16px; }
     @media (max-width: 768px) {
       .about-inner { grid-template-columns: 1fr; }
       .about-img-wrap { order: -1; max-height: 260px; }
+      .about-img { height: 260px; }
     }
 
     /* ── WHY ── */

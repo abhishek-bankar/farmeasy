@@ -89,7 +89,7 @@
   const tdots = document.querySelectorAll('.tdot');
   if (ttrack && tdots.length) {
     const cardWidth = 320 + 24;
-    const total = 4;
+    const total = 5;
     setInterval(() => {
       const scrolled = (Date.now() / (16000 / (cardWidth * total))) % (cardWidth * total);
       const active = Math.floor(scrolled / cardWidth) % total;
